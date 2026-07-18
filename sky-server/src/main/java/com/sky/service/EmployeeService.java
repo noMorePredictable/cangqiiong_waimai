@@ -24,4 +24,6 @@ public interface EmployeeService {
 
 
     PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+/*启用禁用*/
+    void startOrStop(Integer status, long id);
 }
