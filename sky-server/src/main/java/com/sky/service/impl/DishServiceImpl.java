@@ -27,8 +27,13 @@ public class DishServiceImpl implements DishService {
 
         dishMapper.insert(dish);
 
+        Long dishId = dish.getId();
+
         List<DishFlavor> flavors = dishDTO.getFlavors();
         if(flavors != null && flavors.size() > 0) {
+            flavors.forEach(dishFlavor -> {
+                dishFlavor.setDishId(dishId);
+            });
             dishFlavorMapper.insertBatch(flavors);
         }
 
